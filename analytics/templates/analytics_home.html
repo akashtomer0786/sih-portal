@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Static tells django where to find these files. You can see portal/settings.py file
+     there we have set static folder path. So for adding images, css, js use like how I did
+     below -->
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+<h1>Hello, World (Analytics)</h1>
+</body>
+</html>

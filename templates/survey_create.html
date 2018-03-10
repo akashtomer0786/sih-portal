@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block pagecontent %}
+<div class="row">
+    <div class="col s12" style="padding-bottom: 60px;">
+        <ul class="tabs black valign-wrapper">
+            <li class="tab col s3"><a class="active" href="#test1"><b>Survey Information</b></a></li>
+            <li class="tab col s3"><a href="#test2"><b>Create Questions</b></a></li>
+            <li class="tab col s3"><a href="#test3"><b>Completion</b></a></li>
+        </ul>
+    </div>
+    <div id="test1" class="col s10">
+        <form method="post" id="survey">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col s3">
+                    <label>Survey Name</label>
+                    {{ form.name }}
+                </div>
+                <div class="col s12">
+                    <label>Survey Description</label>
+                    {{ form.description }}
+                </div>
+            </div>
+        </form>
+        <button id="next" class="btn pink">Next</button>
+
+    </div>
+    <div id="test2" class="col s12">
+        <form method="post" id="question">
+        <div class="row">
+            <div class="col s6">
+                <label>Question Text</label>
+                {{ question_form.text }}
+                <label>Category</label>
+                <div id="hello">
+            {{ question_form.category }}
+                </div>
+            </div>
+        </div>
+            <button id="next2" class="btn pink" type="submit">Next</button>
+        </form>
+    </div>
+    <div id="test3" class="col s12"></div>
+  </div>
+    <script>
+     $(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+
+    </script>
+{% endblock %}

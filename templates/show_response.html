@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block pagecontent %}
+  <h2>Survey: {{ survey_info.name }}</h2>
+    <ol>
+    {% for i in form %}
+        <li><b>Name:</b> {{ i.name }}<br><b>Response: {{ i.answer }}</b></li>
+    {% endfor %}
+    </ol>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+
+{% block title %}Welcome Home{% endblock %}
+
+<body>
+
+    {% block largepagecontent %}
+    <div class="row black" style="color: white; padding-bottom: 50px;">
+        <div style="padding: 5%;" class="valign-wrapper center-align ">
+            <div class="col s12 flow-text">
+                {% if user.is_authenticated %}
+                    {% if user.first_name %}
+                        <h1>Welcome {{ user.first_name }}</h1>
+                    {% else %}
+                        <h1>Welcome {{ user.username }}</h1>
+                    {% endif %}
+                {% else %}
+                    <h1>Welcome</h1>
+                    <h4>It seems like you are not Logged in !</h4>
+                {% endif %}
+                <br>
+                <a class="waves-effect waves-light btn-large pink" href="/survey/create">Make a Survey</a>
+                <a class="waves-effect waves-light btn-large grey darken-4" href="/survey/show">Take a Survey</a>
+            </div>
+        </div>
+    </div>
+        <br>
+        <br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+    {% endblock %}
+</body>
+</html>
