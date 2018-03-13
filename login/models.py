@@ -13,6 +13,7 @@ class Profile(models.Model):
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
     email_confirmed = models.BooleanField(default=False)
+    image = models.CharField(max_length=500, blank=True)
     phone_number = models.IntegerField(default=False)
 
 

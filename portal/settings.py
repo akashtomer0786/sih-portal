@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'analytics',
     'introapp',
+    'login',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,9 @@ ROOT_URLCONF = 'portal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'introapp', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'introapp', 'templates'),
+                 os.path.join(BASE_DIR, 'analytics', 'templates'),
+                 os.path.join(BASE_DIR, 'login', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media'
             ],
         },
     },
@@ -127,13 +131,18 @@ STATICFILES_DIRS = (
 
 GOOGLE_RECAPTCHA_SECRET_KEY = config('GOOGLE_RECAPTCHA_SECRET_KEY')
 
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/user/login'
+LOGOUT_URL = '/user/logout'
+LOGIN_REDIRECT_URL = '/analytics/dashboard'
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = config('EMAIL_HOST')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'Cyber Bullying Team <django.shashankmail@gmail.com>'
+DEFAULT_FROM_EMAIL = 'Cyber Bullying Team <shashank.sharma98@gmail.com>'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+

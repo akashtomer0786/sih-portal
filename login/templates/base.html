@@ -26,15 +26,14 @@
 
 <ul id="slide-out" class="side-nav">
     <li><a class="waves-effect" href="/">Home</a></li>
-    <li><a class="waves-effect" href="/about">About</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">Account</a></li>
     {% if user.is_authenticated %}
-    <li><a class="waves-effect" href="/logout">Log out</a></li>
+    <li><a class="waves-effect" href="/user/logout">Log out</a></li>
     {% else %}
-    <li><a class="waves-effect" href="/login">Login</a></li>
+    <li><a class="waves-effect" href="/user/login">Login</a></li>
     {% endif %}
-  </ul>
+</ul>
 
 <div class="progress" id = "progress" style="position: relative;display: none;">
   <div class="indeterminate"></div>
@@ -47,15 +46,14 @@
     <a href="#" data-activates="slide-out" class="button-collapse"><i class="large material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
       {% if user.is_authenticated %}
       <li class="right"><a href = "" data-activates='dropdown0' class='dropdown-button'><i class="large material-icons">perm_identity</i></a></li>
       <ul id='dropdown0' class='dropdown-content white'>
         <li class="divider"></li>
-        <li><a href="/logout">Log out</a></li>
+        <li><a href="/user/logout">Log out</a></li>
       </ul>
       {% else %}
-      <li><a href="/login">Log In</a></li>
+      <li><a href="/user/login">Log In</a></li>
       {% endif %}
     </ul>
   </div>

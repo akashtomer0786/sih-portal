@@ -9,22 +9,22 @@ from django.template.loader import render_to_string
 from django.db import transaction
 from django.conf import settings
 from django.contrib import messages
+from django.core.files.storage import FileSystemStorage
 
-from login.forms import SignUpForm, UserForm, ProfileForm, PhoneDetailsForm
+from login.forms import SignUpForm, UserForm, ProfileForm
+from login.models import Profile
 from login.tokens import account_activation_token
 
 import json
 import urllib
-
-
-def home(request):
-    return render(request, 'home.html')
+import datetime
 
 
 def signup(request):
+    if request.user.is_authenticated():
+        return redirect('profile')
     if request.method == 'POST':
         form = SignUpForm(request.POST)
-        form2 = PhoneDetailsForm(request.POST)
         if form.is_valid():
 
             ''' Begin reCAPTCHA validation '''
@@ -41,12 +41,7 @@ def signup(request):
             ''' End reCAPTCHA validation '''
 
             if result['success']:
-                print("Success")
                 form.save()
-
-                phone = form2.save(commit=False)
-                phone.username = form.cleaned_data['username']
-                phone.save()
 
                 user = form.save(commit=False)
                 user.is_active = False
@@ -67,8 +62,7 @@ def signup(request):
                 messages.error(request, 'Invalid reCAPTCHA. Please try again.', extra_tags='safe')
     else:
         form = SignUpForm()
-        form2 = PhoneDetailsForm()
-    return render(request, 'signup.html', {'form': form, 'form2': form2})
+    return render(request, 'signup.html', {'form': form})
 
 
 def account_activation_sent(request):
@@ -120,3 +114,67 @@ def update_profile(request):
         'profile_form': profile_form,
         'signup_form': signup_form,
     })
+
+
+def success(request):
+    return render(request, 'success.html', {})
+
+@login_required
+@transaction.atomic
+def update_profile(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        signup_form = SignUpForm(instance=request.user)
+        current_profile = Profile.objects.filter(pk=request.user.id)[0]
+        print(signup_form)
+
+        if request.FILES['myfile']:
+            myfile = request.FILES['myfile']
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name + '-' + datetime.datetime.now().isoformat(), myfile)
+            uploaded_file_url = fs.url(filename)
+            user = User.objects.filter(pk=request.user.id)
+            current_profile = Profile.objects.get(user=user)
+            current_profile.image = uploaded_file_url
+            current_profile.save()
+            print('UPDATED =', uploaded_file_url)
+            return render(request, 'profile.html', {})
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            return redirect('settings')
+        else:
+            return render(request, 'settings.html', {
+            'user_form': user_form,
+            'signup_form': signup_form,
+            'profile': current_profile,
+        })
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=request.user.profile)
+        signup_form = SignUpForm(instance=request.user)
+        current_profile = Profile.objects.filter(pk=request.user.id)[0]
+    return render(request, 'settings.html', {
+        'user_form': user_form,
+        'signup_form': signup_form,
+        'profile': current_profile
+    })
+
+@login_required
+def profile(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name + '-' + datetime.datetime.now().isoformat(), myfile)
+        uploaded_file_url = fs.url(filename)
+        user = User.objects.filter(pk=request.user.id)
+        current_profile = Profile.objects.get(user=user)
+        current_profile.image = uploaded_file_url
+        current_profile.save()
+        print('UPDATED =', uploaded_file_url)
+        return render(request, 'profile.html', {})
+    else:
+        current_profile = Profile.objects.filter(pk=request.user.id)[0]
+        return render(request, 'profile.html', {'profile': current_profile})
