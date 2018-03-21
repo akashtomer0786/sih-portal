@@ -45,21 +45,61 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+    $('#id_complaint_tag').val('');
+    console.log('RAN');
     $('select').material_select();
+    $('input.tag-autocomplete').autocomplete({
+        data: {
+            "Apple": null,
+            "Microsoft": null,
+            "Google": null
+        },
+        limit: 20,
+        onAutocomplete: function (val) {
+            console.log('It is working = ', val);
+            $("#id_complaint_tag").val("WOW");
+        },
+        minLength: 1
+    });
     $('.chips').material_chip();
-    // $('.chips-autocomplete').material_chip({
-    //     secondaryPlaceholder: 'Test',
-    //     placeholder: 'Hello',
-    //    autocompleteData: {
-    //        data: {
-    //            'Apple': null,
-    //            'Microsoft': null,
-    //            'Google': null
-    //        },
-    //        limit: Infinity,
-    //        minLength: 1
-    //    }
-    // });
+    $('.chips-autocomplete').material_chip({
+       autocompleteOptions: {
+           data: {
+               'Phishing': null,
+               'Cyber Stalking': null,
+               'Exclusion': null,
+               'Fake Profile': null,
+               'Frapping': null,
+               'Harrassment': null,
+               'Outing': null,
+               'Trickery': null,
+               'Trolling': null,
+               'Pornography': null,
+               'Nudity': null,
+               'Threat': null
+           },
+           limit: Infinity,
+           minLength: 1
+       }
+    });
+    $('.chips').on('chip.add', function(e, chip){
+        var val = $('input[name=complaint_tag]').val();
+        if(val.length !== 0) {
+            val += ', ';
+        }
+        $('input[name=complaint_tag]').val(val + chip['tag']);
+        console.log('Final valll = ', $('input[name=complaint_tag]').val());
+    });
+
+    $('.chips').on('chip.delete', function(e, chip){
+        var val = $('input[name=complaint_tag]').val();
+        console.log('replacing = ', chip['tag']);
+        if(val.indexOf(',') === -1) {
+            $('input[name=complaint_tag]').val(val.replace(chip['tag'], ''));
+        } else {
+            $('input[name=complaint_tag]').val(val.replace(chip['tag']+', ', ''));
+        }
+    });
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 100, // Creates a dropdown of 100 years to control year,

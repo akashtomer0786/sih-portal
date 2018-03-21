@@ -33,7 +33,7 @@ class ComplaintsForm(forms.ModelForm):
             })
         # self.fields['complaint_tag'].widget.attrs \
         #     .update({
-        #         'class': 'chips chips-autocomplete',
+        #         'disabled': '',
         #     })
     # full_name = forms.CharField(max_length=200)
     # GENDER_CHOICES = (

@@ -23,11 +23,12 @@
     </div>
     <div class="card-content">
       <h5>Tags: </h5>
+        {% for tag in complaint.get_complaint_tags %}
          <div class="chip">
-           {{complaint.complaint_tag}}
+           {{ tag }}
             <i class="close material-icons">close</i>
          </div>
-
+        {% endfor %}
     </div>
 </div>
 <a href="/complaints" class="btn waves-effect">Go Back</a>

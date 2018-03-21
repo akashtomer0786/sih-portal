@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="row">
+    <h4>Complaint Status</h4>
+        {% if message == 'Error' %}
+            <p>Wrong Credential</p>
+        {% endif %}
+        <form class="col s4" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="ticket_id" type="text" class="validate" name="ticket_id">
+                    <label for="ticket_id">Ticket ID</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="email" type="text" class="validate" name="email">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <button type="submit" class="btn black">Submit</button>
+        </form>
+    </div>
+{% endblock %}
