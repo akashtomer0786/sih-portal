@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'analytics',
     'introapp',
     'login',
+    'complaints',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +62,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'introapp', 'templates'),
                  os.path.join(BASE_DIR, 'analytics', 'templates'),
-                 os.path.join(BASE_DIR, 'login', 'templates')],
+                 os.path.join(BASE_DIR, 'login', 'templates'),
+                 os.path.join(BASE_DIR, 'complaints', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,6 +114,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+DATE_INPUT_FORMATS = ['%d/%m/%Y']
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -145,4 +149,3 @@ DEFAULT_FROM_EMAIL = 'Cyber Bullying Team <shashank.sharma98@gmail.com>'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-

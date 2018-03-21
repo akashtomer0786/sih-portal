@@ -1,0 +1,53 @@
+.navbar-color
+{
+    background:linear-gradient(to right, black, gray);
+    position: fixed;
+}
+.profile-image
+{
+    position: relative;
+    height:auto;
+    width:40px;
+    /* margin-top:20px; */
+     border-radius: 1000px;
+}
+/*.sidebar*/
+/*{*/
+    /*display: block !important;*/
+/*}*/
+/*#main*/
+/*{*/
+    /*position: relative;*/
+    /*width:100%;*/
+    /*height: 100% !important;*/
+/*}*/
+.side-nav
+{
+    position: fixed !important;
+    top: 72px !important;
+    height:100% !important;
+    width:400px !important;
+    margin: 0 !important;
+}
+.user-view {
+    padding: 15px 0 0 15px !important;
+}
+ul .dropdown-content
+{
+    top:50px !important;
+    width:160px !important;
+    overflow: hidden;
+
+}
+.dropdown-content li a
+{
+    color: dodgerblue !important;
+}
+
+.header-search {
+    margin: 10px auto 0 260px !important;
+    width: 350px !important;
+    display: inline-block !important;
+    padding: 8px 8px 8px 72px !important;
+    height: 34px !important;
+}

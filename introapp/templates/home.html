@@ -2,15 +2,257 @@
 {% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!-- Static tells django where to find these files. You can see portal/settings.py file
-     there we have set static folder path. So for adding images, css, js use like how I did
-     below -->
-    <script src="{% static 'js/main.js' %}"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Starter Template - Materialize</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {#  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>#}
+    {#  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>#}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
-<h1>Hello, World!</h1>
-<a href="{% url 'login' %}">Login</a>
+<nav>
+    <nav class="#1a237e indigo darken-4">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Report Complain</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Preliminary Prevention</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Register</a></li>
+                <li><a href="#">Types of CyberBullying</a></li>
+            </ul>
+        </div>
+    </nav>
+</nav>
+
+<!--image slider--->
+<div class="col s12" style="text-align: center;">
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="https://as2.ftcdn.net/jpg/01/05/68/23/500_F_105682362_2i447mqGkxmy3sXvZFUDc0zyxpmxzC8s.jpg">
+                <!-- random image -->
+                <div class="caption center-align">
+                    <h3>Courage is fire, and bullying is smoke!</h3>
+                    <h5 class="light grey-text text-lighten-3">I would rather be a little nobody, then to be a evil
+                        somebody </h5>
+                </div>
+            </li>
+            <li>
+                <img class="responsive-image"
+                     src="https://previews.123rf.com/images/bialasiewicz/bialasiewicz1508/bialasiewicz150801708/43956562-image-of-bad-impact-of-electronic-media-violence-on-teenager.jpg">
+                <!-- random image -->
+                <div class="caption left-align">
+                    <h3> It's the bully who's insecure </h3>
+                    <h5 class="blue-text, .text-darken-4;">Cyber-bullying is poised to turn into the biggest online
+                        concern, already affecting up to 35% of all children.</h5>
+                </div>
+            </li>
+            <li>
+                <img class="responsive-images"
+                     src="https://s3.pixers.pics/pixers/700/FO/52/55/82/95/700_FO52558295_b3e47c672b43d7b1e57f529f0883e9a2.jpg">
+                <div class="caption right-align">
+                    <h3>“Unless and until our society recognizes cyber bullying for what it is, the suffering of
+                        thousands of silent victims will continue.”</h3>
+                    <h5 classs="light grey-text text-lighten-3">“The bullying was hideous and relentless, and we turned
+                        it round by making ourselves celebrities.”
+                    </h5>
+                </div>
+            </li>
+            <li>
+                <img class="responsive-image"
+                     src="https://media.gettyimages.com/photos/cyber-bullying-picture-id171274843">
+                <!-- random image -->
+                <div class="caption center-align">
+                    <h3>This is our big Tagline!</h3>
+                    <h5 class="#212121 grey darken-4 text-lighten-3">“One’s dignity may be assaulted, vandalized and
+                        cruelly mocked, but it can never be taken away unless it is surrendered.”</h5>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <! content begin-->
+
+    <div class="container">
+        <h1 class="header center indigo-text">Cyber Bullying</h1>
+        <h4 class="left-align">What is Cyberbullying </h4>
+        <div class="row">
+
+            <div class="col s5">
+                <h5 class="left-align">Cyberbullying is bullying that takes place over digital devices like cell phones,
+                    computers, and tablets. Cyberbullying can occur through SMS, Text, and apps, or online in social
+                    media, forums, or gaming where people can view, participate in, or share content. Cyberbullying
+                    includes sending, posting, or sharing negative, harmful, false, or mean content about someone else.
+                    It can include sharing personal or private information about someone else causing embarrassment or
+                    humiliation. Some cyberbullying crosses the line into unlawful or criminal behavior.
+                    <h4 class="header centre indigo-text">Places where Cyberbullying occurs:</h4>
+                    <h5 class="left-align">Social Media, such as Facebook, Instagram, Snapchat, and Twitter
+                        SMS (Short Message Service) also known as Text Message sent through devices
+                        Instant Message (via devices, email provider services, apps, and social media messaging
+                        features)
+                        Email</h5></h5>
+            </div>
+            <div class="col s7"><img class="materialboxed" height="800" width="650"
+                                     src="https://media.gettyimages.com/photos/girl-at-the-skate-ramp-texting-on-smartphone-picture-id483558900">
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+<!--section division--->
+<div class="divider"></div>
+<div class="section">
+    <div class="container">
+        <h1 class="header center indigo-text">How it Works</h1>
+        <br><br>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <h5>Step 1</h5>
+                        <i class="small material-icons">edit</i>
+                        <span class="card-title"><h6>File Complaint with us</h6></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6 offset-s6"><span class="flow-text"></span>
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <h5>Step 2</h5>
+                        <i class="small material-icons">account_circle</i>
+                        <span class="card-title"><h6>We will send information provided by the victim to the concernt administrator.The administrator will find the best way to solve that problem</h6> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <h5>Step 3</h5>
+                        <i class="small material-icons">email</i>
+                        <span class="card-title"><h6>4 Stage Method: This is a unique feature in which you can keep the track of your complaint while having a look at its different stages</h6> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6 offset-s6"><span class="flow-text"></span>
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <h5>Step 4</h5>
+                        <i class="small material-icons">sentiment_very_satisfied</i>
+                        <span class="card-title"><h6>Complaint Resolved: Your Voice is heard & Complaint is resolved. Enjoy your rights & freedom</h6> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--section 2-->
+    <div class="divider"></div>
+    <div class="section">
+        <h1 class="header center indigo-text">4 Stages of Complaint</h1>
+        <br><br>
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m3">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+                    <h5 class="center">Stage 1<br>Complaint Pending</h5>
+                    <h6 class="light">The procedure for solving problem is about to take place.</h6>
+                </div>
+            </div>
+
+            <div class="col s12 m3">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+                    <h5 class="center">Stage 2<br>Complaint Accepted</h5>
+                    <h6 class="light">The complain has been accepted by the admin and looked upon by the concernt
+                        person.</h6>
+                </div>
+            </div>
+
+            <div class="col s12 m3">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+                    <h5 class="center">Stage 3<br>Under Investigation</h5>
+                    <h6 class="light">The process of trying to find out all the details or facts about Bullying in order
+                        to discover who or what caused it or how it happened is going on.</h6>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">done_all</i></h2>
+                    <h5 class="center">Stage 4<br>Resolved</h5>
+                    <h6 class="light">Your Voice is heard & Complaint is resolved. Enjoy your rights & freedom.</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br>
+
+<!--footer porstion-->
+<footer class="page-footer indigo">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Company Bio</h5>
+                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's
+                    our full time job. Any amount would help support and continue development on this project and is
+                    greatly appreciated.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Help Desk</h5>
+                <ul>
+                    <li><a class="white-text" href="#!">Open a new ticket</a></li>
+                    <li><a class="white-text" href="#!">Check Ticket Status</a></li>
+                    <li><a class="white-text" href="#!">FAQ</a></li>
+                    <li><a class="white-text" href="#!">About us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2018 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">Team scripters</a>
+        </div>
+    </div>
+</footer>
+
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>$(".dropdown-button").dropdown();</script>
+<script>
+    $(document).ready(function () {
+        $('.slider').slider();
+    });
+</script>
+<script> $(document).ready(function () {
+    $('.materialboxed').materialbox();
+});
+</script>
+<script>
+    $(document).ready(function () {
+        $('.materialboxed').materialbox();
+    });
+</script>
+
+
 </body>
 </html>

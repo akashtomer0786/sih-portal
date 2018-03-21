@@ -2,14 +2,16 @@
 {% block pagecontent %}
 
 <p class="flow-text" style="font-size: 42px;">Settings</p>
-
-    <img src="{{ profile.image }}" style="width: 50vh;">
-    <form method="post" enctype="multipart/form-data">
+    <div>
+    <img src="{{ profile.image }}" class="circle" style="height: 200px;width: 200px;" id="profile_picture">
+    <form method="post" enctype="multipart/form-data" id="change_photo">
         {% csrf_token %}
-        <input type="file" name="myfile">
-        <button type="submit">Change (Upload)</button>
+        <input type="file" name="myfile" id="change_photo_button" class="btn black">
+        <br>
+    <button type="submit" id="submit" class="btn black">Change (Upload)</button>
     </form>
-<form method="post">
+    </div>
+    <form method="post">
   {% csrf_token %} 
   			<label for="textarea1">Username</label>
             <input disabled {{ signup_form.username }}

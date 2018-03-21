@@ -10,10 +10,12 @@ from django.db import transaction
 from django.conf import settings
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
+from django.http import Http404, HttpResponse
 
 from login.forms import SignUpForm, UserForm, ProfileForm
 from login.models import Profile
 from login.tokens import account_activation_token
+from django.views.decorators.csrf import csrf_exempt
 
 import json
 import urllib
@@ -85,6 +87,7 @@ def activate(request, uidb64, token):
     else:
         return render(request, 'account_activation_invalid.html')
 
+
 @login_required
 @transaction.atomic
 def update_profile(request):
@@ -99,10 +102,10 @@ def update_profile(request):
             return redirect('dashboard')
         else:
             return render(request, 'settings.html', {
-            'user_form': user_form,
-            'profile_form': profile_form,
-            'signup_form': signup_form,
-        })
+                'user_form': user_form,
+                'profile_form': profile_form,
+                'signup_form': signup_form,
+            })
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
@@ -119,6 +122,26 @@ def update_profile(request):
 def success(request):
     return render(request, 'success.html', {})
 
+
+# TODO: Make Ajax call
+@csrf_exempt
+def ajax_update_photo(request):
+    print('WORKING')
+    print(request.FILES.get('img'))
+    if request.method == 'POST' and request.FILES['img']:
+        myfile = request.FILES['img']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name[:-4] + '-' + datetime.datetime.now().isoformat() + myfile.name[-4:], myfile)
+        uploaded_file_url = fs.url(filename)
+        user = User.objects.filter(pk=request.user.id)
+        current_profile = Profile.objects.get(user=user)
+        current_profile.image = uploaded_file_url
+        current_profile.save()
+        print('UPDATED =', uploaded_file_url)
+        data = json.dumps(uploaded_file_url)
+        return HttpResponse(data, content_type='application/json')
+
+
 @login_required
 @transaction.atomic
 def update_profile(request):
@@ -127,9 +150,9 @@ def update_profile(request):
         profile_form = ProfileForm(request.POST, instance=request.user.profile)
         signup_form = SignUpForm(instance=request.user)
         current_profile = Profile.objects.filter(pk=request.user.id)[0]
-        print(signup_form)
+        print('CHECK =', request.FILES)
 
-        if request.FILES['myfile']:
+        if 'myfile' in request.FILES and request.FILES['myfile']:
             myfile = request.FILES['myfile']
             fs = FileSystemStorage()
             filename = fs.save(myfile.name + '-' + datetime.datetime.now().isoformat(), myfile)
@@ -147,9 +170,9 @@ def update_profile(request):
             return redirect('settings')
         else:
             return render(request, 'settings.html', {
-            'user_form': user_form,
-            'signup_form': signup_form,
-            'profile': current_profile,
+                'user_form': user_form,
+                'signup_form': signup_form,
+                'profile': current_profile,
         })
     else:
         user_form = UserForm(instance=request.user)
@@ -161,6 +184,7 @@ def update_profile(request):
         'signup_form': signup_form,
         'profile': current_profile
     })
+
 
 @login_required
 def profile(request):
