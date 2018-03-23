@@ -1,7 +1,6 @@
 .navbar-color
 {
-    background:linear-gradient(to right, black, gray);
-    position: fixed;
+    /*background:linear-gradient(to right, black, gray);*/
 }
 .profile-image
 {
@@ -9,28 +8,23 @@
     height:auto;
     width:40px;
     /* margin-top:20px; */
-     border-radius: 1000px;
+    /* border-radius: 1000px; */
 }
-/*.sidebar*/
-/*{*/
-    /*display: block !important;*/
-/*}*/
-/*#main*/
-/*{*/
-    /*position: relative;*/
-    /*width:100%;*/
-    /*height: 100% !important;*/
-/*}*/
+.sidebar
+{
+    display: block !important;
+    margin-left: 0 !important;
+}
+#main
+{
+    padding-left:300px;
+}
 .side-nav
 {
     position: fixed !important;
-    top: 72px !important;
     height:100% !important;
-    width:400px !important;
-    margin: 0 !important;
-}
-.user-view {
-    padding: 15px 0 0 15px !important;
+    /*width:300px !important;*/
+    margin-top:70px !important;
 }
 ul .dropdown-content
 {
@@ -43,11 +37,93 @@ ul .dropdown-content
 {
     color: dodgerblue !important;
 }
+#slide-out
+{
+    /*position: relative;*/
+    height: 100% !important;
+}
+.bar-align
+{
+    height: 60px;
+    padding-top: 2px;
+}
+#searchbar
+{
+    background-color:whitesmoke !important;
+    border-radius: 10px !important;
+    width: 300px !important;
+    height: 60px;
+}
+#searchbar .input-field .prefix {
+            width:0rem !important;
 
-.header-search {
-    margin: 10px auto 0 260px !important;
-    width: 350px !important;
-    display: inline-block !important;
-    padding: 8px 8px 8px 72px !important;
-    height: 34px !important;
+            }
+#searchbar nav ul li:hover, nav ul li.active {
+                background-color: none !important;
+            }
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content{
+            margin-left: 1rem !important;
+            /*width:200px !important;*/
+            }
+    .center-s
+    {
+        width:170px !important;
+
+    }
+    .input-field-s
+    {
+        margin-left:auto !important;
+        margin-right:auto !important;
+    }
+    #autocomplete-input-s
+    {
+        width:100% !important;
+        margin-left:0 !important;
+    }
+    #searchbar_s
+    {
+        margin-left: 20px !important;
+    }
+#mychart
+{
+    height: 110px !important;
+    width:300px !important;
+}
+.card-reveal>ul
+{
+    padding-top:10px;
+}
+.card-reveal>ul>li
+{
+    text-align: center;
+}
+@media only screen and (max-width: 450px)
+{
+    #main
+    {
+        padding-left: 0 !important;
+    }
+}
+.graph
+{
+    padding: 30px;
+    font-size: 1.9em !important;
+}
+.side-nav
+{
+    overflow-y: hidden;
+}
+#drop_2
+{
+    margin-top: 180px;
+    margin-left: 120px;
+    width:100%;
+    position: fixed;
+}
+.graph-title {
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+.graph-space {
+    padding: 20px;
 }

@@ -132,3 +132,12 @@ Step 2: If that works fine, then you are ready to set up the tables. Now type:
 `python manage.py migrate`
 
 Step 3: Now you must see OK after every table executed. If this works fine then you are ready. Now you can start developing.
+
+
+## API Documentation
+
+Here is the collection of all API links which can be used to get data from database in desired format.
+
+API helps to create one central point from where any device can request and fetch data. In this case this will help
+developers to make use of this API if they are planning to create one app for the same cause.
+

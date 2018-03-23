@@ -31,10 +31,10 @@ class ComplaintsForm(forms.ModelForm):
             .update({
                 'class': 'materialize-textarea',
             })
-        # self.fields['complaint_tag'].widget.attrs \
-        #     .update({
-        #         'disabled': '',
-        #     })
+        self.fields['email'].widget.attrs \
+            .update({
+                'style': 'text-transform:lowercase;',
+            })
     # full_name = forms.CharField(max_length=200)
     # GENDER_CHOICES = (
     #     ('M', 'Male'),

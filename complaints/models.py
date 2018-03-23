@@ -8,9 +8,15 @@ def generate_key(length=20):
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length))
 
 
-# TODO: Make date of birth interactive
-# TODO: Make Ticket Generation for each complaint so that it can be accessed
+class ComplaintsManager(models.Manager):
+    def myfilter(self, **filters):
+        filters = {k:v for k,v in filters.items() if v is not None}
+        qs = self.get_queryset()
+        return qs.filter(**filters)
+
+
 class Complaints(models.Model):
+    objects = ComplaintsManager()
     full_name = models.CharField(max_length=200)
     GENDER_CHOICES = (
         ('M', 'Male'),
@@ -31,6 +37,8 @@ class Complaints(models.Model):
     complaint_date = models.DateTimeField(auto_now_add=True)
     complaint_tag = models.CharField(max_length=200, default="")
     ticket_id = models.CharField(max_length=25, default=generate_key, unique=True)
+    mail_confirm = models.BooleanField(default=False)
+    key = models.CharField(max_length=40, blank=True)
 
 
     # TODO: Return Subject, Tags, Created date

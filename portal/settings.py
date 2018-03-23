@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'introapp',
     'login',
     'complaints',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

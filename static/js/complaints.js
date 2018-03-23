@@ -76,7 +76,10 @@ $(document).ready(function() {
                'Trolling': null,
                'Pornography': null,
                'Nudity': null,
-               'Threat': null
+               'Threat': null,
+               'Flaming': null,
+               'Denigration': null,
+               'Impersonation': null
            },
            limit: Infinity,
            minLength: 1

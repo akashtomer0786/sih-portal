@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from . import views
+from .views import dashboard
 
 urlpatterns = [
-    url(r'dashboard$', views.dashboard),
+    url(r'dashboard$', dashboard),
 ]

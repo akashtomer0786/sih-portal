@@ -16,11 +16,15 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from analytics.views import get_complaints   # External view import
 
+
+# TODO: Come up with better implementation for API urls to make project clean
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^analytics/', include('analytics.urls')),
     url(r'^user/', include('login.urls')),
     url(r'^complaints/', include('complaints.urls')),
+    url(r'^api/chart/complaint/$', get_complaints),
     url(r'^', include('introapp.urls')),
 ]
