@@ -2,126 +2,158 @@
 {% load static %}
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/random.css' %}"/>
-	<!--Import Google Icon Font-->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<!--Import materialize.css-->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<!--Import chart js-->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/random.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/loader.css' %}"/>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!--Import chart js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
-	<title>Hey</title>
+    <title>Hey</title>
 </head>
 <body>
-	<!--Navbar-->
-	<nav style="background:linear-gradient(to right, grey, black)">
-		<div class="nav-wrapper">
-			<a href="#" class="brand-logo"></a>
-			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li class="active"><a href="#" class="waves-effect">Home</a></li>
-				<li><a href="#" class="waves-effect">About Us</a></li>
-				<li><a href="typesofbullying.html" class="waves-effect">Types Of Cyber Bullying</a></li>
-				<li><a href="#" class="waves-effect">Preliminary Preventions</a></li>
-				<li><a href="#" class="btn waves-effect">Fill Form</a></li>
-				<li><a href="#" class="btn waves-effect">Admin Login</a></li>
-			</ul>
-		</div>
-	</nav>
-	<img src="{% static 'img/intro.png' %}" width="100%">
-	<div class="row">
-		 <div class="col s12 m6 l5">
-			 <div class="card-panel indigo darken-2 white-text z-depth-5">
-				<h3 class="center-align">Our aim</h3><hr><br>
-				<ul style="list-style-type:disc"></ul>
-					<li>Our aim is to build a portal which lets the victim file his or her complaint with ease.</li><br>
-					<li>Our focus is also to provide the victims with adequate resources with which they can accurately describe their problem</li><br>
-					<li>Our portal's design is minimalist, thus emphasizing on its usability.</li><br>
-					<li>We have prioritized on a clean and ordered database, security of user data and the user-friendliness and interactiviity of the website.</li><br>
-			 </div>
-		 </div>
-		 <div class="col s12 m6 l7">
-	<!--Animation-->
+<!--Navbar-->
+<nav style="background:linear-gradient(to right, grey, black)">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo"></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="active"><a href="#" class="waves-effect">Home</a></li>
+            <li><a href="#" class="waves-effect">About Us</a></li>
+            <li><a href="typesofbullying.html" class="waves-effect">Types Of Cyber Bullying</a></li>
+            <li><a href="#" class="waves-effect">Preliminary Preventions</a></li>
+            <li><a href="#" class="btn waves-effect">Fill Form</a></li>
+            <li><a href="#" class="btn waves-effect">Admin Login</a></li>
+        </ul>
+    </div>
+</nav>
+<img src="{% static 'img/intro.png' %}" width="100%">
+<div class="row">
+    <div class="col s12 m6 l5">
+        <div class="card-panel indigo darken-2 white-text z-depth-5">
+            <h3 class="center-align">Our aim</h3>
+            <hr>
+            <br>
+            <ul style="list-style-type:disc"></ul>
+            <li>Our aim is to build a portal which lets the victim file his or her complaint with ease.</li>
+            <br>
+            <li>Our focus is also to provide the victims with adequate resources with which they can accurately describe
+                their problem
+            </li>
+            <br>
+            <li>Our portal's design is minimalist, thus emphasizing on its usability.</li>
+            <br>
+            <li>We have prioritized on a clean and ordered database, security of user data and the user-friendliness and
+                interactiviity of the website.
+            </li>
+            <br>
+        </div>
+    </div>
+    <div class="col s12 m6 l7">
+        <!--Animation-->
 
-			<div class="grid">
-				<p class="one"><span class="s"></span></p>
-				<p class="two"><span class="s"></span></p>
-				<p class="three"><span class="s"></span></p>
-				<p class="four"><span class="s"></span></p>
-				<p class="five"><span class="s"></span></p>
-				<p class="six"><span class="s"></span></p>
-				<p class="seven"><span class="s"></span></p>
-			</div>
+        <div class="grid">
+            <p class="one"><span class="s"></span></p>
+            <p class="two"><span class="s"></span></p>
+            <p class="three"><span class="s"></span></p>
+            <p class="four"><span class="s"></span></p>
+            <p class="five"><span class="s"></span></p>
+            <p class="six"><span class="s"></span></p>
+            <p class="seven"><span class="s"></span></p>
+        </div>
 
-			<!--Arrow images-->
-			<img src="{% static 'img/step13.png' %}" style="padding-bottom:100px;padding-left:10px" height=300px>
+        <!--Arrow images-->
+        <img src="{% static 'img/step13.png' %}" style="padding-bottom:100px;padding-left:10px" height=300px>
 
-			<img src="{% static 'img/step11.png' %}" style="margin-top:120px; margin-right:200px;" height=150px>
+        <img src="{% static 'img/step11.png' %}" style="margin-top:120px; margin-right:200px;" height=150px>
 
-			<!--Arrow images end-->
-		</div>
-	</div>
-	<div class="row">
-		<div class="col s12 m6 l6">
-			<!--Animation-->
-					<div class="container" style="position: absolute; top: 1400px; right: 670px; width: 1060px; transform: rotateX(60deg) rotateZ(-50deg);transform-style: preserve-3d;">
-						<p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"class="one"><span class="s"></span></p>
-						<p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"class="two"><span class="s"></span></p>
-						<p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"class="received"><span class="s"></span></p>
-						<p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"class="accepted"><span class="s"></span></p>
-						<p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"class="investigation"><span class="s"></span></p>
-						<p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"class="resolved"><span class="s"></span></p>
-						<p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"class="final"><span class="s"></span></p>
-					</div>
-			<!--Animation end-->
-			<!--Arrow images-->
-			<img src="{% static 'img/stages.png' %}" style="margin-bottom:100px" height=380px>
-		 <!--Arrow images end-->
-	 </div>
-	 <div class="col s12 m6 l6">
+        <!--Arrow images end-->
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m6 l6">
+        <!--Animation-->
+        <div class="container"
+             style="position: absolute; top: 1400px; right: 670px; width: 1060px; transform: rotateX(60deg) rotateZ(-50deg);transform-style: preserve-3d;">
+            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
+               class="one"><span class="s"></span></p>
+            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
+               class="two"><span class="s"></span></p>
+            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
+               class="received"><span class="s"></span></p>
+            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
+               class="accepted"><span class="s"></span></p>
+            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
+               class="investigation"><span class="s"></span></p>
+            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
+               class="resolved"><span class="s"></span></p>
+            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
+               class="final"><span class="s"></span></p>
+        </div>
+        <!--Animation end-->
+        <!--Arrow images-->
+        <img src="{% static 'img/stages.png' %}" style="margin-bottom:100px" height=380px>
+        <!--Arrow images end-->
+    </div>
+    <div class="col s12 m6 l6">
 
-		<!--Card start-->
-		<div class="card-panel indigo darken-2 white-text  z-depth-5" style="height:800px">
-		 <h3 class="center-align">Facets of the website</h3><hr><br>
-		 <ul style="list-style-type:disc"></ul>
-			 <li><h5>Complaint registry:</h5> The user can input his or her problem in the portal's complaint section. The input will be in the form of a text, describing the problem he or she is facing and against whom.</li>
-			 This will give a more profound evidence of when, how, where and by whom the victim was bullied.<br>
-			 <li><h5>Ticket generation:</h5> A ticket will be generated for every complaint. This ticket will possess a unique ID. This will help the consultant and the user to uniquely identify the complaint and track down the progress made by the officials in solving the issue.<br>
-			 <li><h5>Tags:</h5> Complaints will be classified on the basis of tags. This allows the officials to search for problems on the basis of tags.</li>
-			 This will include a certain level of flexibility to the search process and the officials as well since they can now search for tags in their area of expertise.<br>
-			 <li><h5>Data analysis:</h5> Data will be analyzed on a regular basis and shown in the analytics dashboard. </li>
-			 Analytical data will include the location(s) and the tag(s) associated with the complaint<br>
-			 This will help in identifying the areas which are infested with the heinous crime of cyberbullying<br>
-			 This will also bring into our notice the types of cyberbullying occuring in those areas, including the frequency at which the complaints are addressed and solved by the authorities.<br>
-			 <li><h5>Messaging system:</h5>Email/sms will be sent with third party modules.</li><br>
-		</div>
-		<!--Card end-->
-
-
-	</div>
-	</div>
-
-
- <!--Start footer-->
- <footer class="page-footer" style="background:linear-gradient(to right, grey,black)">
- 		<div >
- 			<div class="row">
- 				<div class="col l6 s12">
- 					<h4 class="white-text">Scripters</h4>
- 					<p class="grey-text text-lighten-4">"Quality over quantity".</p>
- 				</div>
-
- 			</div>
- 		</div>
- 		<div class="footer-copyright">
- 			<div class="container">
- 			© 2018 Copyright text
- 			</div>
- 		</div>
- 	</footer>
- <!--End footer-->
+        <!--Card start-->
+        <div class="card-panel indigo darken-2 white-text  z-depth-5" style="height:800px">
+            <h3 class="center-align">Facets of the website</h3>
+            <hr>
+            <br>
+            <ul style="list-style-type:disc"></ul>
+            <li><h5>Complaint registry:</h5> The user can input his or her problem in the portal's complaint section.
+                The input will be in the form of a text, describing the problem he or she is facing and against whom.
+            </li>
+            This will give a more profound evidence of when, how, where and by whom the victim was bullied.<br>
+            <li><h5>Ticket generation:</h5> A ticket will be generated for every complaint. This ticket will possess a
+                unique ID. This will help the consultant and the user to uniquely identify the complaint and track down
+                the progress made by the officials in solving the issue.<br>
+            <li><h5>Tags:</h5> Complaints will be classified on the basis of tags. This allows the officials to search
+                for problems on the basis of tags.
+            </li>
+            This will include a certain level of flexibility to the search process and the officials as well since they
+            can now search for tags in their area of expertise.<br>
+            <li><h5>Data analysis:</h5> Data will be analyzed on a regular basis and shown in the analytics dashboard.
+            </li>
+            Analytical data will include the location(s) and the tag(s) associated with the complaint<br>
+            This will help in identifying the areas which are infested with the heinous crime of cyberbullying<br>
+            This will also bring into our notice the types of cyberbullying occuring in those areas, including the
+            frequency at which the complaints are addressed and solved by the authorities.<br>
+            <li><h5>Messaging system:</h5>Email/sms will be sent with third party modules.</li>
+            <br>
+        </div>
+        <!--Card end-->
 
 
-			<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    </div>
+</div>
+
+
+<!--Start footer-->
+<footer class="page-footer" style="background:linear-gradient(to right, grey,black)">
+    <div>
+        <div class="row">
+            <div class="col l6 s12">
+                <h4 class="white-text">Scripters</h4>
+                <p class="grey-text text-lighten-4">"Quality over quantity".</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2018 Copyright text
+        </div>
+    </div>
+</footer>
+<!--End footer-->
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="{% static 'js/loader.js' %}"></script>
 </body>
 </html>

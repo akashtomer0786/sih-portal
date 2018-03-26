@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .forms import ComplaintsForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
@@ -9,6 +9,8 @@ from portal import settings
 from .models import Complaints
 from django.core.mail import send_mail
 import hashlib
+
+# TODO: Security Issue: Making AJAX must check if user is authenticated or not
 
 
 # TODO: Change email to lowercase and then filter it out
@@ -29,13 +31,30 @@ def complaint_status(request):
 
 @login_required
 def index(request):
-    complaints = Complaints.objects.filter(mail_confirm=True)[:10]
+    complaints = Complaints.objects.filter(mail_confirm=True).order_by('-complaint_date')[:1]
 
-    context = {
-        'title': 'Latest Posts',
-        'complaints': complaints
-    }
-    return render(request, 'index.html', context)
+    return render(request, 'index.html', {'complaints': complaints})
+
+
+# TODO: Hide tag if nothing is changed
+def get_ajax_complaints(request):
+    if request.user.is_authenticated:
+        limit = request.GET.get('limit')
+
+        result = False
+        try:
+            limit = int(limit)
+            complaints = Complaints.objects.filter(mail_confirm=True).order_by('-complaint_date')[limit:limit+1].values()
+            result = True
+            return JsonResponse({
+                'complaints': list(complaints),
+                'result': result
+            })
+        except ValueError:
+            return JsonResponse({
+                'message': 'Error with your request. Please Refresh',
+                'result': result
+            })
 
 
 # TODO: Option to assign complaint to any particular official

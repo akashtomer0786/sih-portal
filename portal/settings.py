@@ -117,6 +117,7 @@ LANGUAGE_CODE = 'en-us'
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
+# TODO: Fix Time Zone
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

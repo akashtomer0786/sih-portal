@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from analytics.views import get_complaints   # External view import
+from analytics.views import get_complaints, get_tags, api_documentation, get_week   # External view import
 
 
 # TODO: Come up with better implementation for API urls to make project clean
@@ -26,5 +26,8 @@ urlpatterns = [
     url(r'^user/', include('login.urls')),
     url(r'^complaints/', include('complaints.urls')),
     url(r'^api/chart/complaint/$', get_complaints),
+    url(r'^api/chart/tags/$', get_tags),
+    url(r'^api/chart/week/$', get_week),
+    url(r'^api/documentation$', api_documentation, name='api_documentation'),
     url(r'^', include('introapp.urls')),
 ]

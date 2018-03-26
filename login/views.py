@@ -142,6 +142,7 @@ def ajax_update_photo(request):
         return HttpResponse(data, content_type='application/json')
 
 
+# TODO: Check image extension saving correctly
 @login_required
 @transaction.atomic
 def update_profile(request):

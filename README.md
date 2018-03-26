@@ -141,3 +141,10 @@ Here is the collection of all API links which can be used to get data from datab
 API helps to create one central point from where any device can request and fetch data. In this case this will help
 developers to make use of this API if they are planning to create one app for the same cause.
 
+## TODO:
+
+1. Fix all page issues
+2. Success page sahi karna hai
+3. Complaint resolve - mail_confirm | Accept / Reject | Resolve (user satisfied)
+4. Feedback - Rating
+5. Dashboard

@@ -8,15 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{% static 'img/mines.jpg' %}">
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/analytics.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/loader.css' %}"/>
+    <!-- TODO: This is causing error in side nav bar: Not showing scroll option -->
+    {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.10/css/perfect-scrollbar.css">#}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js' type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.10/js/perfect-scrollbar.jquery.js"></script>
 </head>
 <body>
 <div class="navbar-fixed">
-    <nav class="navbar-color">
+    <nav class="navbar-color black">
         <div class="nav-wrapper">
             <span class="left brand-logo hide-on-small-only adm">Admin Panel</span>
             <a href="#" data-activates="slide-out" class="left brand-logo button-collapse sidebar hide-on-large-only ">
@@ -38,7 +42,7 @@
                 <li><a href="#"><i class="material-icons">notifications</i></a></li>
                 <li>
                     <a href="#" class="dropdown-button btn-floating" data-activates="profile_drop" data-hover='true'>
-                        <img src="{% static 'img\gravatar.jpg' %}" alt="gravatar" class="circle profile-image"/>
+                        <img src="{% static 'img/gravatar.jpg' %}" alt="gravatar" class="circle profile-image"/>
                         Admin
                     </a>
                     <!-- Dropdown Structure -->
@@ -65,82 +69,72 @@
                         <!-- <div class="background">
                            <img src="gravatar.jpg">
                            </div> -->
-                        <a href="#!user"><img class="circle" src="{% static 'img\gravatar.jpg' %}"></a>
+                        <a href="#!user"><img class="circle" src="{% static 'img/gravatar.jpg' %}"></a>
                         <a href="#!name"><span class="gray-text name">Admin</span></a>
                         <!-- <a href="#!email"><span class="gray-text email">admin@gmail.com</span></a> -->
                     </div>
                 </li>
-                <li><a class="waves-effect" href="#"><i class="material-icons">home</i>Home</a></li>
-                <li><a class="waves-effect dropdown-trigger" data-activates="drop_2" href="#"><i class="material-icons">pie_chart</i>
-                    Stats</a>
-                    <ul id="drop_2" class='dropdown-content'>
-                        <li><a href="#">Barchart</a></li>
-                        <li><a href="#">pie Chart</a></li>
-                        <li><a href="#">Line chart</a></li>
-                    </ul>
-                    <script>
-                        $(".dropdown-trigger").dropdown();
-                    </script>
-                </li>
-                <li><a class="waves-effect" href="#!"><i class="material-icons">local_phone</i>Reports</a></li>
-                <li><a class="waves-effect" href="#"><i class="material-icons">home</i>Home</a></li>
-                <li><a class="waves-effect" href="#"><i class="material-icons">pie_chart</i>Stats</a></li>
-                <li><a class="waves-effect" href="#!"><i class="material-icons">local_phone</i>Call</a></li>
-                <li><a class="waves-effect" href="#"><i class="material-icons">home</i>Home</a></li>
-                <li><a class="waves-effect" href="#"><i class="material-icons">pie_chart</i>Stats</a></li>
-                <li><a class="waves-effect" href="#!"><i class="material-icons">local_phone</i>Call</a></li>
-                <li><a class="waves-effect" href="#"><i class="material-icons">home</i>Home</a></li>
-                <li><a class="waves-effect" href="#"><i class="material-icons">pie_chart</i>Stats</a></li>
-                <li><a class="waves-effect" href="#!"><i class="material-icons">local_phone</i>Call</a></li>
+                <li><a class="waves-effect" href="{% url 'dashboard' %}"><i class="material-icons">home</i>Home</a></li>
+                <li><a class="waves-effect" href="{% url 'profile' %}"><i class="material-icons">account_circle</i>Profile</a></li>
+                <li><a class="waves-effect" href="{% url 'settings' %}"><i class="material-icons">settings</i>Settings</a></li>
             </ul>
 
         </aside>
         <div class="row">
+
+            <!-- CARD 1 WORKING -->
             <div class="col s12 m6 l3">
-                <div class="card blue-grey">
-                    <div class="card-stats-title">
-                        <h5>No of Complaints</h5>
+                <div class="card cyan white-text">
+                    <div class="card-content card-body">
+                        <p class="card-title"><i class="material-icons icon-position">local_post_office</i> New
+                            Complaints</p>
+                        <p class="card-stats" id="new-complaint-stats"></p>
+                        <p class="card-compare" id="new-complaint-compare"></p>
                     </div>
-                    <div class="card-content">
-                        237
-                        <hr>
-                        No new Improvements
+                    <div class="card-action cyan darken-1">
+                        Final
                     </div>
                 </div>
             </div>
+
+            <!-- CARD 2 -->
             <div class="col s12 m6 l3">
-                <div class="card teal">
-                    <div class="card-title">
-                        <h5>No of Complaints</h5>
+                <div class="card deep-orange lighten-1 white-text">
+                    <div class="card-content card-body">
+                        <p class="card-title"><i class="material-icons icon-position">layers</i> Total Complaints</p>
+                        <p class="card-stats" id="total-complaint-stats"></p>
+                        <p class="card-compare" id="total-complaint-compare"></p>
                     </div>
-                    <div class="card-content">
-                        237
-                        <hr>
-                        No new Improvements
+                    <div class="card-action deep-orange darken-1">
+                        Final
                     </div>
                 </div>
             </div>
+
+            <!-- CARD 3 -->
             <div class="col s12 m6 l3">
-                <div class="card purple accent-1">
-                    <div class="card-title">
-                        <h5>No of Complaints</h5>
+                <div class="card teal lighten-1 white-text">
+                    <div class="card-content card-body">
+                        <p class="card-title"><i class="material-icons icon-position">layers</i> Random Complaints</p>
+                        <p class="card-stats" id="random-complaint-stats">500</p>
+                        <p class="card-compare" id="random-complaint-compare"></p>
                     </div>
-                    <div class="card-content">
-                        237
-                        <hr>
-                        No new Improvements
+                    <div class="card-action teal">
+                        Need work
                     </div>
                 </div>
             </div>
+
+            <!-- CARD 4 -->
             <div class="col s12 m6 l3">
-                <div class="card blue lighten-1">
-                    <div class="card-title">
-                        <h5>No of Complaints</h5>
+                <div class="card red lighten-1 white-text">
+                    <div class="card-content card-body">
+                        <p class="card-title"><i class="material-icons icon-position">whatshot</i> Trending Tags</p>
+                        <p class="card-stats" id="trendingtag-complaint-stats"></p>
+                        <p class="card-compare" id="trendingtag-complaint-compare"></p>
                     </div>
-                    <div class="card-content">
-                        237
-                        <hr>
-                        No new Improvements
+                    <div class="card-action red">
+                        Final
                     </div>
                 </div>
             </div>
@@ -148,6 +142,7 @@
 
 
         <!-- MAIN GRAPH -->
+        <!-- TODO: If possible change height of this card and reduce it -->
         <div class="row">
             <div class="col s8 m8 l8">
                 <div class="card ">
@@ -182,6 +177,25 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Sub MAIN GRAPH -->
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-content teal accent-4">
+                        <span class="graph-title white-text">Top 5 Tags</span>
+                        <div class="graph">
+                            <canvas id="radarChart" class="Chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card-action teal">
+                        <span class="graph-title white-text">Complaints by Gender</span>
+                        <div class="graph">
+                            <canvas id="linearChart" class="Chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="row">
             <div class="col s12 m6 l6">
@@ -260,6 +274,8 @@
 </script>
 </body>
 <script src="{% static 'js/dashboard_chart.js' %}" type="text/javascript"></script>
+{#<script src="{% static 'js/loader.js' %}"></script>#}
+<script src="{% static 'js/analytics.js' %}"></script>
 <script>
     $(document).ready(function () {
         $('input.autocomplete').autocomplete({

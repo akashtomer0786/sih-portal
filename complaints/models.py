@@ -15,6 +15,8 @@ class ComplaintsManager(models.Manager):
         return qs.filter(**filters)
 
 
+# TODO: Make status resolved ** HIGH PRIORITY **
+# TODO: Make state and city as auto complete feature ** HIGH PRIORITY **
 class Complaints(models.Model):
     objects = ComplaintsManager()
     full_name = models.CharField(max_length=200)
@@ -39,6 +41,8 @@ class Complaints(models.Model):
     ticket_id = models.CharField(max_length=25, default=generate_key, unique=True)
     mail_confirm = models.BooleanField(default=False)
     key = models.CharField(max_length=40, blank=True)
+    taken = models.BooleanField(default=False)
+    resolved = models.BooleanField(default=False)
 
 
     # TODO: Return Subject, Tags, Created date
