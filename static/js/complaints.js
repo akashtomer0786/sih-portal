@@ -1,15 +1,16 @@
 // https://stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format
 function formatAMPM(date) {
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var ampm = hours >= 12 ? 'pm' : 'am';
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? '0'+minutes : minutes;
-  return hours + ':' + minutes + ' ' + ampm;
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    return hours + ':' + minutes + ' ' + ampm;
 }
 
 $(document).ready(function () {
+    console.log('asd =', window.location.href);
     localStorage.setItem('limit', 1);
 
     $('#submit_complaint').submit(function () {
@@ -36,6 +37,53 @@ $(document).ready(function () {
         return false;
     });
 
+    $('#complaint_accept').click(function () {
+        let id = window.location.href.split('/');
+        console.log(id);
+        id = id[id.length - 2];
+        console.log(id);
+        $.ajax({
+            type: "GET",
+            url: "/complaints/ajax/complaint_accept?id=" + id,
+            success: function (response) {
+                console.log(response);
+                if (response['status'] === true) {
+                    Materialize.toast(response['message'], 4000);
+                } else {
+                    Materialize.toast(response['message'], 4000);
+                    console.log('Error');
+                }
+            },
+            error: function () {
+                console.log('Error, Please refresh this page');
+                Materialize.toast('There is some error with website. Please contact Admin', 4000);
+            }
+        });
+        return false;
+    });
+
+    $('#complaint_resolve').click(function () {
+        let id = window.location.href.split('/');
+        id = id[id.length - 2];
+        $.ajax({
+            type: "GET",
+            url: "/complaints/ajax/complaint_resolve?id=" + id,
+            success: function (response) {
+                if (response['status'] === true) {
+                    Materialize.toast(response['message'], 4000);
+                } else {
+                    Materialize.toast(response['message'], 4000);
+                    console.log('Error');
+                }
+            },
+            error: function () {
+                console.log('Error, Please refresh this page');
+                Materialize.toast('There is some error with website. Please contact Admin', 4000);
+            }
+        });
+        return false;
+    });
+
     // TODO: Add Animation like Fade in for each request
     $('#get_complaints').click(function () {
         localStorage.setItem('limit', parseInt(localStorage.getItem('limit')) + 1);
@@ -45,11 +93,11 @@ $(document).ready(function () {
             url: "ajax/get_complaints?limit=" + localStorage.getItem('limit'),
             success: function (response) {
                 if (response['result'] === true) {
-                    var complaint_body = document.getElementById('complaint_body');
+                    let complaint_body = document.getElementById('complaint_body');
                     for (i = 0; i < response['complaints'].length; i++) {
-                        var complaint_date = new Date(response["complaints"][i]["complaint_date"]);
-                        var tags_string = '';
-                        var tags_list = response['complaints'][i]['complaint_tag'].split(',');
+                        const complaint_date = new Date(response["complaints"][i]["complaint_date"]);
+                        let tags_string = '';
+                        const tags_list = response['complaints'][i]['complaint_tag'].split(',');
                         for (j = 0; j < tags_list.length; j++) {
                             tags_string += '<div class="chip">\n' +
                                 tags_list[j] + '\n' +
@@ -125,7 +173,7 @@ $(document).ready(function () {
         }
     });
     $('.chips').on('chip.add', function (e, chip) {
-        var val = $('input[name=complaint_tag]').val();
+        const val = $('input[name=complaint_tag]').val();
         if (val.length !== 0) {
             val += ',';
         }

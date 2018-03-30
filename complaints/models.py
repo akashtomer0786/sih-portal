@@ -2,6 +2,7 @@ import random
 import string
 from django.db import models
 from django.core.validators import RegexValidator
+from django.contrib.auth.models import User
 
 
 def generate_key(length=20):
@@ -43,6 +44,7 @@ class Complaints(models.Model):
     key = models.CharField(max_length=40, blank=True)
     taken = models.BooleanField(default=False)
     resolved = models.BooleanField(default=False)
+    complaint_taken_by = models.OneToOneField(User, null=True)
 
 
     # TODO: Return Subject, Tags, Created date

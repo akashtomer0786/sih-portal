@@ -4,6 +4,7 @@ from portal import settings
 
 from .models import Complaints
 
+
 class ComplaintsForm(forms.ModelForm):
     class Meta:
         model = Complaints

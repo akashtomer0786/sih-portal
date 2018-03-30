@@ -7,6 +7,8 @@ import json
 import urllib
 from portal import settings
 from .models import Complaints
+from login.models import Profile
+from django.contrib.auth.models import User
 from django.core.mail import send_mail
 import hashlib
 
@@ -16,6 +18,7 @@ import hashlib
 # TODO: Change email to lowercase and then filter it out
 # TODO: Change complaint view for user side
 # TODO: Forgot Ticket ID
+# TODO: Remove complaints which are resolved
 def complaint_status(request):
     if request.method == 'GET':
         return render(request, 'complaint_status.html', {})
@@ -62,12 +65,65 @@ def get_ajax_complaints(request):
 @login_required
 def details(request, id):
     complaint = Complaints.objects.get(id=id)
+    user = User.objects.filter(pk=request.user.id)
+    profile = Profile.objects.get(user=user)
 
     context = {
-        'complaint': complaint
+        'complaint': complaint,
+        'profile': profile,
     }
 
     return render(request, 'details.html', context)
+
+
+def ajax_complaint_accept(request):
+    if request.method == 'GET':
+        if request.user.is_authenticated():
+            id = request.GET.get('id')
+            complaint = Complaints.objects.get(id=id)
+            user = User.objects.get(pk=request.user.id)
+            if Complaints.objects.filter(id=id, complaint_taken_by=user):
+                data = {
+                    'status': False,
+                    'message': 'Credentials Error'
+                }
+            else:
+                complaint.complaint_taken_by = user
+                complaint.taken = True
+                complaint.save()
+                data = {
+                    'status': True,
+                    'message': 'This task has been assigned to you',
+                }
+            return JsonResponse(data)
+
+
+def ajax_complaint_resolve(request):
+    if request.method == 'GET':
+        if request.user.is_authenticated():
+            id = request.GET.get('id')
+            complaint = Complaints.objects.get(id=id)
+            user = User.objects.get(pk=request.user.id)
+            try:
+                if not user.username == complaint.complaint_taken_by.username:
+                    data = {
+                        'status': False,
+                        'message': 'Credentials Error'
+                    }
+                else:
+                    complaint.resolved = True
+                    complaint.save()
+                    data = {
+                        'status': True,
+                        'message': 'This complaint has been resolved',
+                    }
+            except:
+                data = {
+                    'status': False,
+                    'message': 'First Accept the complaint'
+                }
+
+            return JsonResponse(data)
 
 
 # TODO: Recheck the complaint_Tag with given predefined tags from python
