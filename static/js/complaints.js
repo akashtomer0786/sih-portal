@@ -14,6 +14,7 @@ $(document).ready(function () {
     localStorage.setItem('limit', 1);
 
     $('#submit_complaint').submit(function () {
+        Materialize.toast('Processing ...', 4000);
         console.log('YESS');
         // $('#progress').css('display','block');
         $.ajax({

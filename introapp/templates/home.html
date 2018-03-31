@@ -32,7 +32,7 @@
 </nav>
 <div class="row">
     <div class="col s12 l12 m12">
-        <h5 class="text white-text left-align">
+        <h5 class="text white-text left-align" style="font-size: 24px">
             Are you being bullied?
             Allow us to help you overcome the ever-rising barrier of cyberbulling
         </h5>
@@ -41,7 +41,7 @@
 
 <div class="row">
     <div class="col s12 m12 l5">
-        <div class="card-panel grey darken-4 cyan-text z-depth-3" style="height:600px">
+        <div class="card-panel grey darken-4 cyan-text z-depth-3" >
             <h3 class="center-align cyan-text">What Does Cyberbullying Look Like?</h3>
             <hr>
             <br>
@@ -87,8 +87,8 @@
     <div class="col s12 m12 l12">
 
         <!--Card start-->
-        <div class="card-panel grey darken-4 cyan-text z-depth-3" style="height:800px">
-            <h3 class="center-align cyan-text">I am being cyberbullied - How can I stop it?</h3>
+        <div class="card-panel grey darken-4 cyan-text z-depth-3" >
+            <h3 class="center-align cyan-text">I am being Cyberbullied - How can I stop it?</h3>
             <hr>
             <br>
             <div class="row">
@@ -96,7 +96,12 @@
                     <div class="card-panel grey darken-4 z-depth-0">
                         <h4 class="red-text text-lighten-2">Know what you are looking for</h4>
                         Always be on the lookout for fraping, cyberstalking, harrassment and impersonation.
-                    </div>
+                        Cyberbullies do not attack with a notice. An person can be victimised anywhere and anytime. It does
+                        not even matter if the victim and the bully are acquainted or not. <br>
+                        It is therefore important to know and understand the different types of cyberbullying.
+                        <br><br>To know more about the different types of cyberbulling, visit:
+                        <a href="{% url 'types_of_cyber_bullying' %}" class="btn grey darken-2 black-text z-depth-3">Types of Cyberbullying</a>
+                    </div><hr>
                 </div>
             </div>
             <div class="row">
@@ -106,8 +111,13 @@
                         <h4 class="red-text text-lighten-2">Take immediate action</h4>
                         Attempt to identify the cause, stop responding to the bully's message. Save evidence in the form
                         of screenshots or recordings before blocking the bully.
-                        After blocking the bully, do not forget to change your account settings.
-                    </div>
+                        After blocking the bully, do not forget to change your account settings.<br>
+                        We will provide you with brief counseling and you can also submit your complaint.<br><br>
+                        To know more, visit:
+                        <a hre
+                           f="{% url 'councelling' %}" class="btn grey darken-2 black-text z-depth-3">Report Complaint</a>
+
+                    </div><hr>
                 </div>
             </div>
             <div class="row">
@@ -120,10 +130,10 @@
                         You can also report the bully to your service providers if he is taking the telecommunication
                         way to bully you. If the problem is too large to be handled, then it is
                         best to get the law enforcement involved. This is where this portal comes into play.
-                        <br></br>
-                        <a href="{% url 'faq' %}"><h5 class="center-align green-text">Read out FAQs section to equip yourself
-                            with the hows and whys of our site.</h5></a>
-                    </div>
+                        <br>
+                        In case you have any doubt regarding the web portal, visit:
+                        <a href="{% url 'faq' %}" class="btn grey darken-2 black-text z-depth-3">FAQ Page</a>
+                    </div><hr>
                 </div>
 
             </div>
@@ -137,7 +147,7 @@
     <div class="col s12 m12 l12">
 
         <!--Card start-->
-        <div class="card-panel grey darken-4 cyan-text z-depth-3" style="height:700px">
+        <div class="card-panel grey darken-4 cyan-text z-depth-3" >
             <h3 class="center-align cyan-text">Facets of the website</h3>
             <hr>
             <br>
@@ -164,17 +174,16 @@
             <br>
         </div>
         <!--Card end-->
-
-
+        <a href="{% url 'cs1'  %}" class="btn-large">Case Study</a>
     </div>
 </div>
 
-<!--Start case study slider-->
 
 
 
 
-<!--End case study slider-->
+
+
 
 <!--Start footer-->
 <footer class="page-footer footers" style="background:linear-gradient(to right, transparent,teal ,transparent); ">
@@ -193,14 +202,14 @@
             </div>
 
 
-            <div class="col s6 m6">
+            <div class="col s6 m4" style="font-size: 100%">
                 <h2 style="color:black"class="white-text"> Important Links</h2>
-                <ul style="font-size:25px">
+                <ul style="font-size:100%">
                     <li><a href="https://india.gov.in/ " class="white-text">Government of India</a></li>
                     <li><a href="http://www.gujarathelpline.com/ " class="white-text">Government of Gujrat</a></li>
                     <li style="color:black"class="white-text">Toll free helpline: 1800-180-5522</li>
                     <br>
-                    <li style="color:black;font-size: 20px;"class="white-text"><em>All rights reserved<em></li>
+                    <li style="color:black;font-size: 100%;"class="white-text"><em>All rights reserved<em></li>
                 </ul>
             </div>
 
@@ -213,12 +222,6 @@
 <!--Footer js-->
 <script type="text/javascript" src="{% static 'js/footer.js' %}"></script>
 <!--Footer js end-->
-<script>
-    $(document).ready(function(){
-    $('.carousel').carousel();
-    });
-
-</script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>

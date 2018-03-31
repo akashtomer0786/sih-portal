@@ -20,6 +20,10 @@ urlpatterns = [
     url(r'^councelling/teen$', views.teen_councelling, name='teen_councelling'),
     url(r'^councelling/adult$', views.adult_councelling, name='adult_councelling'),
     url(r'^faq$', views.faq, name='faq'),
+    url(r'^case_study1$', views.cs1, name='cs1'),
+    url(r'^case_study2$', views.cs1, name='cs2'),
+    url(r'^case_study3$', views.cs1, name='cs3'),
+    url(r'^case_study4$', views.cs1, name='cs4'),
     url(r'^$', views.homepage, name='home'),
 ]
 

@@ -68,3 +68,24 @@ def kids_councelling(request):
 
 def adult_councelling(request):
     return render(request, 'adult.html', {})
+
+
+def cs1(request):
+    return render(request, 'case_study1.html', {})
+
+
+
+def cs2(request):
+    return render(request, 'case_study2.html', {})
+
+
+
+def cs3(request):
+    return render(request, 'case_study3.html', {})
+
+
+
+def cs4(request):
+    return render(request, 'case_study4.html', {})
+
+
