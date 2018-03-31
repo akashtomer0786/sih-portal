@@ -3,6 +3,7 @@ import string
 from django.db import models
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 def generate_key(length=20):
@@ -18,6 +19,7 @@ class ComplaintsManager(models.Manager):
 
 # TODO: Make status resolved ** HIGH PRIORITY **
 # TODO: Make state and city as auto complete feature ** HIGH PRIORITY **
+# TODO: If possible split data
 class Complaints(models.Model):
     objects = ComplaintsManager()
     full_name = models.CharField(max_length=200)
@@ -44,7 +46,13 @@ class Complaints(models.Model):
     key = models.CharField(max_length=40, blank=True)
     taken = models.BooleanField(default=False)
     resolved = models.BooleanField(default=False)
-    complaint_taken_by = models.OneToOneField(User, null=True)
+    complaint_taken_by = models.ForeignKey(User, null=True)
+    feedback_user = models.CharField(max_length=800, blank=True)
+    feedback_official = models.CharField(max_length=800, blank=True)
+    rating = models.IntegerField(
+        default=0,
+        validators=[MaxValueValidator(6), MinValueValidator(0)]
+     )
 
 
     # TODO: Return Subject, Tags, Created date

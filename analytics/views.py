@@ -56,6 +56,9 @@ def get_complaints(request):
     get_date = request.GET.get('date')
     get_resolved = bool(request.GET.get('resolved')) or False
 
+    if not get_resolved:
+        get_resolved = None
+
     if get_complaints_tags:
         get_complaints_tags = get_complaints_tags.split(',')
 
@@ -160,6 +163,7 @@ def get_complaints(request):
     return Response(data)
 
 
+# TODO: Less than 5 tags should show dash
 @api_view(['GET'])
 def get_tags(request):
     tags = defaultdict(int)

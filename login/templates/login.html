@@ -3,13 +3,13 @@
 <div class="col s12 m">
     <p class="z-depth-5"></p>
     {% block pagecontent %}
-        <div class="card-panel  blue-grey darken-3">
+        <div class="card-panel white z-depth-0">
             <div class="row">
                 <div class="col s12 m4">
                 </div>
                 <div class="center col s12 m4">
-                    <h class="center light-blue-text"><i class="large material-icons prefix">account_circle</i></h>
-                    <span class="light-blue-text text-darken-2"><p class="flow-text" style="font-size: 40px"> Log in</p></span>
+                    <h class="center black-text"><i class="large material-icons prefix">account_circle</i></h>
+                    <span class="black-text text-darken-2"><p class="flow-text" style="font-size: 40px;)"> Log in</p></span>
                     {% if form.errors %}
                         <p style="color: red">Your username and password didn't match. Please try again.</p>
                     {% endif %}
@@ -18,13 +18,11 @@
                         <input type="hidden" name="next" value="{{ next }}"/>
                         {% for field in form %}
                             <p>
-                            <div class="input-field col s8">
-                                {{ field }}
-                                <label>{{ field.label_tag }}</label>
-                            </div>
-                            {% for error in field.errors %}
-                                <p style="color: red">{{ error }}</p>
-                            {% endfor %}
+                                {{ field.label_tag }}<br>
+                                {{ field }}<br>
+                                {% for error in field.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
                             {% if field.help_text %}
                                 <p>
                                     <small style="color: grey">{{ field.help_text }}</small>
@@ -33,7 +31,7 @@
                             </p>
                         {% endfor %}
 
-                        <button type="submit" class="btn">Log in</button>
+                        <button type="submit" class="btn waves-effect teal">Log in</button>
                         <br><br>
                         <a href="{% url 'signup' %}">New Here? Sign up</a>
                         <br>
@@ -53,6 +51,6 @@
                 </div>
             </div>
         </div>
-        </div>
-        </div>
+    </div>
+
     {% endblock %}

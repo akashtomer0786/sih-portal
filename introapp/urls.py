@@ -3,7 +3,6 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     url(r'^types/$', views.types_of_cb, name='types_of_cyber_bullying'),
     url(r'^types/trolling$', views.type_trolling, name='type_trolling'),
@@ -15,6 +14,12 @@ urlpatterns = [
     url(r'^types/exclusion$', views.type_exclusion, name='type_exclusion'),
     url(r'^types/cyberstalking$', views.type_cyberstalking, name='type_cyberstalking'),
     url(r'^types/catphishing$', views.type_catphishing, name='type_catphishing'),
+    url(r'^report_complaint$', views.report_complaint, name='report_complaint'),
+    url(r'^councelling$', views.councelling_home, name='councelling'),
+    url(r'^councelling/kids$', views.kids_councelling, name='kids_councelling'),
+    url(r'^councelling/teen$', views.teen_councelling, name='teen_councelling'),
+    url(r'^councelling/adult$', views.adult_councelling, name='adult_councelling'),
+    url(r'^faq$', views.faq, name='faq'),
     url(r'^$', views.homepage, name='home'),
 ]
 

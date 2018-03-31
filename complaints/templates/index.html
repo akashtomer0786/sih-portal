@@ -5,12 +5,12 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li class="active"><a href="#" class="waves-effect">Home</a></li>
-                <li><a href="#" class="waves-effect">About Us</a></li>
-                <li><a href="typesofbullying.html" class="waves-effect">Types Of Cyber Bullying</a></li>
-                <li><a href="#" class="waves-effect">Preliminary Preventions</a></li>
-                <li><a href="#" class="btn waves-effect">Fill Form</a></li>
-                <li><a href="#" class="btn waves-effect">Admin Login</a></li>
+                <li class="active"><a href="{% url 'home' %}" class="waves-effect">Home</a></li>
+
+                <li><a href="{% url 'types_of_cyber_bullying' %}" class="waves-effect">Types Of Cyber Bullying</a></li>
+
+                <li><a href="{% url 'report_complaint' %}" class="btn waves-effect">Report Complaint</a></li>
+                <li><a href="{% url 'login' %}" class="btn waves-effect">Admin Login</a></li>
             </ul>
         </div>
     </nav>

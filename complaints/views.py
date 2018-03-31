@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from .forms import ComplaintsForm
+from .forms import ComplaintsForm, FeedbackForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 import json
@@ -19,18 +19,21 @@ import hashlib
 # TODO: Change complaint view for user side
 # TODO: Forgot Ticket ID
 # TODO: Remove complaints which are resolved
-def complaint_status(request):
+def complaint_status_form(request):
     if request.method == 'GET':
-        return render(request, 'complaint_status.html', {})
+        return render(request, 'complaint_status_form.html', {})
     else:
         ticket_id = request.POST.get('ticket_id')
         email = request.POST.get('email').lower()
         try:
-            filtered_complaint = Complaints.objects.get(ticket_id=ticket_id, email=email)
-            return render(request, 'complaint_view.html', {'complaint': filtered_complaint})
+            filtered_complaint = Complaints.objects.get(ticket_id=ticket_id, email__icontains=email)
+            return render(request, 'complaint_status.html', {'complaint': filtered_complaint})
         except:
-            return render(request, 'complaint_status.html', {'message': 'Error'})
+            return render(request, 'complaint_status_form.html', {'message': 'Error'})
 
+
+def complaint_status(request):
+    pass
 
 @login_required
 def index(request):
@@ -221,3 +224,23 @@ def activate_complaint(request, key):
         return render(request, 'success_form.html', {})
     except:
         return render(request, 'wrong.html', {})
+
+
+def feedback_user(request, key):
+    if request.method == 'GET':
+        form = FeedbackForm
+        if Complaints.objects.filter(ticket_id=key):
+            return render(request, 'feedback_user.html', {'form': form})
+        else:
+            return render(request, 'wrong.html', {})
+    else:
+        form = FeedbackForm(request.POST)
+        print(request.POST.get('feedback_user'))
+        complaint = Complaints.objects.get(ticket_id=key)
+        if form.is_valid():
+            complaint.feedback_user = request.POST.get('feedback_user')
+            complaint.rating = request.POST.get('rating')
+            complaint.save()
+            return render(request, 'success.html', {})
+        else:
+            return render(request, 'home.html', {})

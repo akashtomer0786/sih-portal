@@ -44,3 +44,27 @@ def type_cyberstalking(request):
 
 def type_catphishing(request):
     return render(request, 'catphishing.html', {})
+
+
+def faq(request):
+    return render(request, 'faq.html', {})
+
+
+def report_complaint(request):
+    return render(request, 'report_complaint.html', {})
+
+
+def councelling_home(request):
+   return render(request, 'councelling_home.html', {})
+
+
+def teen_councelling(request):
+    return render(request, 'teen.html', {})
+
+
+def kids_councelling(request):
+    return render(request, 'kids.html', {})
+
+
+def adult_councelling(request):
+    return render(request, 'adult.html', {})

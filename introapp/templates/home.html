@@ -2,61 +2,68 @@
 {% load static %}
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/random.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/home.css' %}"/>
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/loader.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <!--Import chart js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hey</title>
+    <title>Home</title>
 </head>
 <body>
-<script src="{% static 'js/loader.js' %}"></script>
 <!--Navbar-->
 <nav style="background:linear-gradient(to right, grey, black)">
     <div class="nav-wrapper">
         <a href="#" class="brand-logo"></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="active"><a href="#" class="waves-effect">Home</a></li>
-            <li><a href="#" class="waves-effect">About Us</a></li>
-            <li><a href="typesofbullying.html" class="waves-effect">Types Of Cyber Bullying</a></li>
-            <li><a href="#" class="waves-effect">Preliminary Preventions</a></li>
-            <li><a href="#" class="btn waves-effect">Fill Form</a></li>
-            <li><a href="#" class="btn waves-effect">Admin Login</a></li>
+            <li class="active"><a href="{% url 'home' %}" class="waves-effect">Home</a></li>
+            <li><a href="{% url 'types_of_cyber_bullying' %}" class="waves-effect">Types</a></li>
+            <li><a href="{% url 'report_complaint' %}" class="btn waves-effect">Report Complaint</a></li>
+            <li><a href="{% url 'login' %}" class="btn waves-effect">Admin Login</a></li>
         </ul>
     </div>
 </nav>
-<img src="{% static 'img/intro.png' %}" width="100%">
 <div class="row">
-    <div class="col s12 m6 l5">
-        <div class="card-panel indigo darken-2 white-text z-depth-5">
-            <h3 class="center-align">Our aim</h3>
+    <div class="col s12 l12 m12">
+        <h5 class="text white-text left-align">
+            Are you being bullied?
+            Allow us to help you overcome the ever-rising barrier of cyberbulling
+        </h5>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12 m12 l5">
+        <div class="card-panel grey darken-4 cyan-text z-depth-3" style="height:600px">
+            <h3 class="center-align cyan-text">What Does Cyberbullying Look Like?</h3>
             <hr>
             <br>
             <ul style="list-style-type:disc"></ul>
-            <li>Our aim is to build a portal which lets the victim file his or her complaint with ease.</li>
+            <h5>Cyberbulling is an evil that appears in many forms, including:</h5><br>
+            <li>Abusive text messages and emails.</li>
             <br>
-            <li>Our focus is also to provide the victims with adequate resources with which they can accurately describe
-                their problem
-            </li>
+            <li>Forceful exclusion from social groups.</li>
             <br>
-            <li>Our portal's design is minimalist, thus emphasizing on its usability.</li>
+            <li>Online humiliation.</li>
             <br>
-            <li>We have prioritized on a clean and ordered database, security of user data and the user-friendliness and
-                interactiviity of the website.
-            </li>
+            <li>Online impersonation and frapping.</li>
             <br>
+            <li>Trolling which is against moral rights.</li>
+            <br>
+            <li>Illegal and forceful entry to sensitive data without your permission.</li>
         </div>
     </div>
     <div class="col s12 m6 l7">
         <!--Animation-->
 
-        <div class="grid">
+        <div class="grid hide-on-med-and-down">
             <p class="one"><span class="s"></span></p>
             <p class="two"><span class="s"></span></p>
             <p class="three"><span class="s"></span></p>
@@ -67,43 +74,71 @@
         </div>
 
         <!--Arrow images-->
-        <img src="{% static 'img/step13.png' %}" style="padding-bottom:100px;padding-left:10px" height=300px>
+        <img class="hide-on-med-and-down" src="{% static 'img/step13.png' %}" style="margin-top:125px;padding-left:10px"
+             height=200px>
 
-        <img src="{% static 'img/step11.png' %}" style="margin-top:120px; margin-right:200px;" height=150px>
+        <img class="hide-on-med-and-down" src="{% static 'img/step11.png' %}"
+             style="margin-top:120px; margin-right:200px;" height=150px>
 
         <!--Arrow images end-->
     </div>
 </div>
 <div class="row">
-    <div class="col s12 m6 l6">
-        <!--Animation-->
-        <div class="container"
-             style="position: absolute; top: 1400px; right: 670px; width: 1060px; transform: rotateX(60deg) rotateZ(-50deg);transform-style: preserve-3d;">
-            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
-               class="one"><span class="s"></span></p>
-            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
-               class="two"><span class="s"></span></p>
-            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
-               class="received"><span class="s"></span></p>
-            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
-               class="accepted"><span class="s"></span></p>
-            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
-               class="investigation"><span class="s"></span></p>
-            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
-               class="resolved"><span class="s"></span></p>
-            <p style="float: left; margin: 20px; list-style-type: none; background-size: 0, cover;transform-style: preserve-3d; position: absolute;"
-               class="final"><span class="s"></span></p>
-        </div>
-        <!--Animation end-->
-        <!--Arrow images-->
-        <img src="{% static 'img/stages.png' %}" style="margin-bottom:100px" height=380px>
-        <!--Arrow images end-->
-    </div>
-    <div class="col s12 m6 l6">
+    <div class="col s12 m12 l12">
 
         <!--Card start-->
-        <div class="card-panel indigo darken-2 white-text  z-depth-5" style="height:800px">
-            <h3 class="center-align">Facets of the website</h3>
+        <div class="card-panel grey darken-4 cyan-text z-depth-3" style="height:800px">
+            <h3 class="center-align cyan-text">I am being cyberbullied - How can I stop it?</h3>
+            <hr>
+            <br>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="card-panel grey darken-4 z-depth-0">
+                        <h4 class="red-text text-lighten-2">Know what you are looking for</h4>
+                        Always be on the lookout for fraping, cyberstalking, harrassment and impersonation.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col s12 m12 l12 ">
+                    <div class="card-panel grey darken-4 z-depth-0">
+                        <h4 class="red-text text-lighten-2">Take immediate action</h4>
+                        Attempt to identify the cause, stop responding to the bully's message. Save evidence in the form
+                        of screenshots or recordings before blocking the bully.
+                        After blocking the bully, do not forget to change your account settings.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="card-panel grey darken-4 z-depth-0">
+                        <h4 class="red-text text-lighten-2">Get outside help</h4>
+                        Always remeber: Do not hesitate and wait too long to ask for help. This can lead to disastrous
+                        situations. If you are a child or a teenager, ask an adult for help.
+                        Often, talking it out with parents and teachers is the best solution.
+                        You can also report the bully to your service providers if he is taking the telecommunication
+                        way to bully you. If the problem is too large to be handled, then it is
+                        best to get the law enforcement involved. This is where this portal comes into play.
+                        <br></br>
+                        <a href="{% url 'faq' %}"><h5 class="center-align green-text">Read out FAQs section to equip yourself
+                            with the hows and whys of our site.</h5></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--Card end-->
+
+
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m12 l12">
+
+        <!--Card start-->
+        <div class="card-panel grey darken-4 cyan-text z-depth-3" style="height:700px">
+            <h3 class="center-align cyan-text">Facets of the website</h3>
             <hr>
             <br>
             <ul style="list-style-type:disc"></ul>
@@ -134,25 +169,57 @@
     </div>
 </div>
 
+<!--Start case study slider-->
+
+
+
+
+<!--End case study slider-->
 
 <!--Start footer-->
-<footer class="page-footer" style="background:linear-gradient(to right, grey,black)">
-    <div>
+<footer class="page-footer footers" style="background:linear-gradient(to right, transparent,teal ,transparent); ">
+
+    <div class="container">
         <div class="row">
-            <div class="col l6 s12">
-                <h4 class="white-text">Scripters</h4>
-                <p class="grey-text text-lighten-4">"Quality over quantity".</p>
+            <div class="col s6 m6">
+                <h3 class="contact white-text">Follow us at:</h3>
+                <a href="#"><img src="{% static 'img/google_bw.png' %}" class="responsive-img image" id="img"></a>
+                <a href="#"><img src="{% static 'img/facebook-logo.svg' %}" class="responsive-img image" id="img1"></a>
+                <a href="#"><img src="{% static 'img/insta_bw.png' %}" class="responsive-img image" id="img2"></a>
+                <a href="#"><img src="{% static 'img/twitter_bw.svg' %}" class="responsive-img image" id="img3"></a>
+                <h5 style="color:black;"class="white-text">Our partner : <a href="http://www.gujaratindia.com"class="white-text">www.gujaratindia.com</a>
+                </h5>
+
+            </div>
+
+
+            <div class="col s6 m6">
+                <h2 style="color:black"class="white-text"> Important Links</h2>
+                <ul style="font-size:25px">
+                    <li><a href="https://india.gov.in/ " class="white-text">Government of India</a></li>
+                    <li><a href="http://www.gujarathelpline.com/ " class="white-text">Government of Gujrat</a></li>
+                    <li style="color:black"class="white-text">Toll free helpline: 1800-180-5522</li>
+                    <br>
+                    <li style="color:black;font-size: 20px;"class="white-text"><em>All rights reserved<em></li>
+                </ul>
             </div>
 
         </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            © 2018 Copyright text
-        </div>
-    </div>
+
 </footer>
+
 <!--End footer-->
 
+<!--Footer js-->
+<script type="text/javascript" src="{% static 'js/footer.js' %}"></script>
+<!--Footer js end-->
+<script>
+    $(document).ready(function(){
+    $('.carousel').carousel();
+    });
+
+</script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 </html>
