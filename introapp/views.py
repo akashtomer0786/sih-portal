@@ -51,7 +51,7 @@ def faq(request):
 
 
 def report_complaint(request):
-    return render(request, 'report_complaint.html', {})
+    return render(request, 'councelling_home.html', {})
 
 
 def councelling_home(request):
