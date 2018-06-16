@@ -1,6 +1,6 @@
 # Cyber bullying portal
 
-This is our demo project for Smart India Hackathon 2018 where we got selected for Grand Finale round.
+This is our demo project for Smart India Hackathon 2018 where we got selected for Grand Finale round. [Idea proposal](https://github.com/indraasura/Scripters)
 Technical Stack used:
 
 1. Django 1.11
