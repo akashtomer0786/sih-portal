@@ -38,7 +38,7 @@ Our main focus was to create one user-friendly interface so that user can come t
 
 ### Admin login
 
-<img src="https://imgur.com/64UYx8Z,jpg">
+<img src="https://imgur.com/64UYx8Z.jpg">
 
 ### Complaint Form
 
