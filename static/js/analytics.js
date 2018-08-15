@@ -254,6 +254,7 @@ function get_week_complaints(chart) {
     Promise.all([week_one_promise, week_two_promise, week_three_promise, week_four_promise, week_five_promise,
         week_six_promise, week_seven_promise]).then(function (data) {
         console.log(data);
+        chart.data.labels = [getDate(6), getDate(5), getDate(4), getDate(3), getDate(2), getDate(1), getDate(0)];
         chart.data.datasets[0].data = data;
         chart.update();
         return data;

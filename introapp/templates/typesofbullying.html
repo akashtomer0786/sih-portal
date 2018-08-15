@@ -16,14 +16,14 @@
 </head>
 <body>
 <!--Navbar(will be 12 columns wide on all screens)-->
-<nav style="background: linear-gradient(to right, grey, black)">
+<nav style="background-color: black">
     <div class="nav-wrapper">
         <a href="#" class="brand-logo"></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="{% url 'home' %}" class="waves-effect">Home</a></li>
             <li class="active"><a href="{% url 'types_of_cyber_bullying' %}" class="waves-effect">Types</a></li>
-            <li><a href="{% url 'report_complaint' %}" class="btn waves-effect">Report Complaint</a></li>
-            <li><a href="{% url 'login' %}" class="btn waves-effect">Admin Login</a></li>
+            <li><a href="{% url 'report_complaint' %}" class="btn grey darken-4 waves-effect">Report Complaint</a></li>
+            <li><a href="{% url 'login' %}" class="btn grey darken-4 waves-effect">Admin Login</a></li>
         </ul>
     </div>
 </nav>
@@ -58,16 +58,15 @@
             <!--End radar-->
         </div>
     </div>
-</div>
-<div class="row">
+
     <div class="col s12 m8 l8"> <!-- Note that "m8 l8" was added -->
         <!-- Teal page content
           This content will be:
           4-columns-wide on large screens,
           8-columns-wide on medium screens,
           12-columns-wide on small screens  -->
-        <div class="card-panel grey darken-4 col s12 m12 l12" style="width:100%; height:580px">
-            <h5 class="blue-text nicetext">
+        <div class="col s12 m12 l12" style="width:100%; height:580px">
+            <h5 class="white-text flow-text">
                 For decades now the internet has been bringing people together. Gone are the days
                 when friendships would have to be sacrificed after graduation and families were obliged to be based in
                 the same cities the
@@ -84,7 +83,7 @@
             </h5>
         </div>
     </div>
-</div>
+    </div>
 <hr>
 <div class="parallax-container">
     <div class="parallax"><img src="{% static 'img/cbully.jpg' %}"></div>
